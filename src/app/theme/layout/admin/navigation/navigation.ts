@@ -33,24 +33,10 @@ const NavigationItems = [
     icon: 'feather icon-monitor',
     children: [
       {
-        id: 'routing-basic',
-        title: 'Manejo Básico',
-        type: 'item',
-        url: '/observables/basic',
-        icon: 'feather icon-home'
-      },
-      {
         id: 'routing-can-deactivate',
         title: 'canDeActivate',
         type: 'item',
         url: '/routing/can-deactivate',
-        icon: 'feather icon-layout'
-      },
-      {
-        id: 'routing-subject',
-        title: 'Subject',
-        type: 'item',
-        url: '/observables/subject',
         icon: 'feather icon-layout'
       }
     ]

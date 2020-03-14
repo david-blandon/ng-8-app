@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ObservableSubjectService } from './observable-subject.service';
 
 @Component({
   selector: 'app-observables-subject',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ObservablesSubjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private service: ObservableSubjectService
+  ) { }
 
   ngOnInit() {
   }
 
+  onActivate() {
+    this.service.activatedEmitter.next(true);
+  }
 }
