@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Formulario Básico" [options]="false">
+      <h5>Registro</h5>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div id="userData">
+              <div class="form-group">
+                <label for="firstname">Nombre</label>
+                <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Nombre"
+                ngModel
+                #firstname="ngModel"
+                required
+                name="firstname">
+                <small *ngIf="!firstname.valid && firstname.touched" class="form-text text-muted">El nombre es requerido</small>
+              </div>
+              <div class="form-group">
+                <label for="lastname">Apellido</label>
+                <input type="text" class="form-control" id="lastname" aria-describedby="lastname" placeholder="Apellidos"
+                ngModel
+                name="lastname">
+              </div>
+            </div>
+
+            <!-- <small *ngIf="!userData.valid && userData.touched" class="form-text text-muted">Los datos del usuario son requeridos</small> -->
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Email"
+              ngModel
+              name="email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password"
+              ngModel
+              name="password">
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirmar Password</label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar Password"
+              ngModel
+              name="confirmPassword">
+            </div>
+            <div class="form-group">
+              <label>Idioma</label>
+              <select class="form-control"
+              ngModel
+              name="language">
+                <option value="">Por favor seleccione un idioma</option>
+                <option *ngFor="let lang of langs"
+                        [value]="lang">
+                        {{lang}}
+                </option>
+              </select>
+            </div>
+            <button [disabled]="!form.valid" type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <pre>{{form?.value | json}}</pre>
+        </div>
+      </div>
+    </app-card>
+  </div>
+
+</div>

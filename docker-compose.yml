@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    image: aden/angular:8.0.0
+    container_name: trainingFrontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'  
+    ports:
+      - '4200:4200'
+    environment:
+      NODE_ENV: development
+    command: /bin/sh -c "while sleep 1000; do :; done"

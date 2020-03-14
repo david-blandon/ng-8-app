@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Controles Dinámicos" [options]="false">
+      <h5>Registro</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div id="userDataGroup" formGroupName="userData">
+              <div class="form-group">
+                <label for="firstname">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  aria-describedby="firstname"
+                  placeholder="Nombre"
+                  formControlName="firstname"
+                />
+                <!-- <small *ngIf="!firstname.valid && firstname.touched && firstname.errors.required" class="form-text text-muted">El nombre es requerido</small> -->
+              </div>
+              <div class="form-group">
+                <label for="lastname">Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  aria-describedby="lastname"
+                  placeholder="Apellidos"
+                />
+              </div>
+            </div>
+            <!-- <small class="form-text text-muted">Los datos del usuario son requeridos</small> -->
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+              />
+              <!-- <small class="form-text text-muted">El email es requerido</small> -->
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirmar Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                placeholder="Confirmar Password"
+              />
+            </div>
+            <div class="form-group">
+              <label>Idioma</label>
+              <select class="form-control">
+                <option value="">Por favor seleccione un idioma</option>
+                <option *ngFor="let lang of langs" [value]="lang">
+                  {{ lang }}
+                </option>
+              </select>
+            </div>
+            <h5>Hobbies</h5>
+            <hr />
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-7">
+                  Actividad
+                </div>
+                <div class="col-md-3">Frecuencia</div>
+              </div>
+
+              <div formArrayName="hobbies">
+                <div
+                  class="row"
+                  *ngFor="let control of hobbies; let i = index"
+                  [formGroupName]="i"
+                  style="margin-top: 10px;"
+                >
+                  <div class="col-md-7">
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="name"
+                    />
+                    <small
+                      *ngIf="
+                        !control.get('name').valid &&
+                        control.get('name').touched &&
+                        control.get('name').errors.required
+                      "
+                      class="form-text text-muted"
+                      >La actividad es requerida</small
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-control" formControlName="frecuency">
+                      <option value=""></option>
+                      <option value="Diaria">Diaria</option>
+                      <option value="Semanal">Semanal</option>
+                    </select>
+                  </div>
+                  <div class="col-md-2">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="onDelete(i)"
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      (click)="onAddHobbies()"
+                    >
+                      Adicionar interes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <pre>{{ form?.value | json }}</pre>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
