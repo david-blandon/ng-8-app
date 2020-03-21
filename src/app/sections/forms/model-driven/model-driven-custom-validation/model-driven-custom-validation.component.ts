@@ -26,7 +26,7 @@ export class ModelDrivenCustomValidationComponent implements OnInit {
         firstname: [null, Validators.required],
         lastname: [null],
       }),
-      email: [null, [Validators.required, Validators.email], this.forbiddenEmails],
+      email: ['', [Validators.required, Validators.email], this.forbiddenEmails],
       password: [null],
       confirmPassword: [null, this.confirmPasswordValidator],
       language: [null],

@@ -27,11 +27,54 @@ export interface Navigation extends NavigationItem {
 
 const NavigationItems = [
   {
+    id: 'components',
+    title: 'Componentes-Databinding',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'databinding',
+        title: 'Databinding',
+        type: 'item',
+        url: '/components/databinding',
+        icon: 'feather icon-layout'
+      },
+      {
+        id: 'structural-directives',
+        title: 'Directivas Estructurales',
+        type: 'item',
+        url: '/components/structural-directives',
+        icon: 'feather icon-layout'
+      },
+      {
+        id: 'view-encapsulation',
+        title: 'ViewEncapsulation',
+        type: 'item',
+        url: '/components/view-encapsulation',
+        icon: 'feather icon-layout'
+      },
+      {
+        id: 'push-strategy',
+        title: 'Push Strategy',
+        type: 'item',
+        url: '/components/push-strategy',
+        icon: 'feather icon-layout'
+      }
+    ]
+  },
+  {
     id: 'routing',
     title: 'Routing',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
+      {
+        id: 'routing-child',
+        title: 'Rutas aninadas',
+        type: 'item',
+        url: '/routing/child',
+        icon: 'feather icon-layout'
+      },
       {
         id: 'routing-can-deactivate',
         title: 'canDeActivate',
@@ -172,8 +215,22 @@ const NavigationItems = [
     icon: 'feather icon-monitor',
     children: [
       {
+        id: 'ngrx-basic',
+        title: 'Básico',
+        type: 'item',
+        url: '/ngrx/basic',
+        icon: 'feather icon-home'
+      },
+      {
+        id: 'ngrx-effect',
+        title: 'Effects',
+        type: 'item',
+        url: '/ngrx/effect',
+        icon: 'feather icon-home'
+      },
+      {
         id: 'todo',
-        title: 'ToDo',
+        title: 'Sintaxis Alternativa',
         type: 'item',
         url: '/ngrx/todo',
         icon: 'feather icon-home'

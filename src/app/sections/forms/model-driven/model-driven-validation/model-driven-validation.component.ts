@@ -20,9 +20,9 @@ export class ModelDrivenValidationComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      firstname: null,
+      firstname: [null, Validators.required],
       lastname: [null],
-      email: [null],
+      email: [null, [Validators.required, Validators.email]],
       password: [null],
       confirmPassword: [null],
       language: [null],
@@ -31,6 +31,10 @@ export class ModelDrivenValidationComponent implements OnInit {
 
   get firstname():FormControl {
     return this.form.get('firstname') as FormControl;
+  }
+
+  get email():FormControl {
+    return this.form.get('email') as FormControl;
   }
 
   onSubmit() {

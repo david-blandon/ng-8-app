@@ -1,1 +1,93 @@
-<p>observables-operator works!</p>
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Operadores" [options]="false">
+      <h5>switchMap</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <form novalidate [formGroup]="form">
+            <div class="form-group">
+              <label for="search">Buscar</label>
+              <input
+                type="text"
+                class="form-control"
+                id="search"
+                placeholder="Por favor digitar su búsqueda"
+                formControlName="search"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="list-group">
+        <a
+           class="list-group-item list-group-item-action"
+           *ngFor="let track of itunes?.results">
+          <img src="{{track.artworkUrl30}}">
+          {{ track.trackName }} <span class="text-muted">by</span> {{ track.artistName }}
+        </a>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="NgRx" [options]="false">
+      <h5>mergeMap</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+            <button type="button" (click)="onMergeMap()" class="btn btn-primary m-r-5">Ejecutar</button>
+            <button type="button" (click)="onMergeMapAjax()" class="btn btn-primary">Ejecutar Ajax</button>
+        </div>
+      </div>
+      <div class="list-group">
+        <a
+           class="list-group-item list-group-item-action"
+           *ngFor="let track of itunesMerge">
+          <img src="{{track.artworkUrl30}}">
+          {{ track.trackName }} <span class="text-muted">by</span> {{ track.artistName }}
+        </a>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="NgRx" [options]="false">
+      <h5>concatMap</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+            <button type="button" (click)="onConcatMap()" class="btn btn-primary">Ejecutar</button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="NgRx" [options]="false">
+      <h5>exhaustMap</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+            <button type="button" (click)="onExhaustMap()" class="btn btn-primary m-r-5">Ejecutar</button>
+            <button type="button" (click)="onExhaustMapAjax()" class="btn btn-primary">Ejecutar Ajax</button>
+        </div>
+      </div>
+      <div class="list-group">
+        <a
+           class="list-group-item list-group-item-action"
+           *ngFor="let track of itunesExhaust">
+          <img src="{{track.artworkUrl30}}">
+          {{ track.trackName }} <span class="text-muted">by</span> {{ track.artistName }}
+        </a>
+      </div>
+    </app-card>
+  </div>
+</div>
+

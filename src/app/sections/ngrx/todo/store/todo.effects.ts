@@ -17,7 +17,7 @@ export class ToDoEffects {
       mergeMap(action =>
         this.todoService.getToDos().pipe(
           map((data: ToDo[]) => {
-            console.log(data);
+
             return ToDoActions.successGetToDoAction({ payload: data });
           }),
           catchError((error: Error) => {
@@ -34,7 +34,7 @@ export class ToDoEffects {
       mergeMap(action =>
         this.todoService.createToDos(action.payload).pipe(
           map((data: ToDo) => {
-            return ToDoActions.successCreateToDoAction({ payload: data });
+            return ToDoActions.successCreateToDoAction({ payload: action.payload });
           }),
           catchError((error: Error) => {
             return of(ToDoActions.errorToDoAction(error));

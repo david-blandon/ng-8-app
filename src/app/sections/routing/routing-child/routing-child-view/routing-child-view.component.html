@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Rutas anidadas" [options]="false">
+      <h5>Información Servidor</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="firstname">Nombre</label>
+            {{ server?.name }}
+          </div>
+          <div class="form-group">
+            <label for="lastname">Estado</label>
+            {{ server?.status }}
+          </div>
+
+          <button type="button" (click)="onEdit()" class="btn btn-primary">
+            Editar
+          </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

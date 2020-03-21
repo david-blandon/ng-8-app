@@ -36,7 +36,7 @@ export class ModelDrivenGroupingComponent implements OnInit {
   }
 
   get firstname():FormControl {
-    return this.form.get('firstname') as FormControl;
+    return this.form.get('userData.firstname') as FormControl;
   }
 
   onSubmit() {

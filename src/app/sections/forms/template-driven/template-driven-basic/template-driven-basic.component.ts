@@ -15,7 +15,7 @@ export class TemplateDrivenBasicComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: HTMLFormElement) {
+  onSubmit(form: NgForm) {
     console.log(form);
   }
 }

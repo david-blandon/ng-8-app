@@ -15,6 +15,10 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'components',
+        loadChildren: () => import('./sections/components/components.module').then(module => module.ComponentsModule)
+      },
+      {
         path: 'routing',
         loadChildren: () => import('./sections/routing/routing.module').then(module => module.RoutingModule)
       },
@@ -24,6 +28,7 @@ const routes: Routes = [
       },
       {
         path: 'observables',
+        //canActivate: [AuthGuard],
         loadChildren: () => import('./sections/observables/observables.module').then(module => module.ObservablesModule)
       },
       {
@@ -42,7 +47,11 @@ const routes: Routes = [
         loadChildren: () => import('./sections/auth/authentication.module').then(module => module.AuthenticationModule)
       }
     ]
-  }
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'forms'
+  // }
 ];
 
 @NgModule({

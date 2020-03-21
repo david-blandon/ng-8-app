@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Lista de Servidores" [options]="false">
+      <div class="panel panel-default">
+        <!--<div class="panel-heading">{{ element.name }}</div>-->
+        <div class="panel-heading" #heading>{{ name }}</div>
+        <div class="panel-body">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

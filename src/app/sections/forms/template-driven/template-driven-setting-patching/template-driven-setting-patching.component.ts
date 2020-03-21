@@ -24,7 +24,7 @@ export class TemplateDrivenSettingPatchingComponent implements OnInit {
   ngOnInit() {
     console.log(this.form)
 
-    // this.email = "david@test.com";
+    this.email = "david@test.com";
 
     // setTimeout(() => {
     //   this.form.setValue({
@@ -39,14 +39,13 @@ export class TemplateDrivenSettingPatchingComponent implements OnInit {
     //   });
     // })
 
-    // setTimeout(() => {
-    //   this.form.form.patchValue({
-    //     userData: {
-    //       firstname: "David",
-    //       lastname: "Blandon"
-    //     }
-    //   });
-    // })
+    setTimeout(() => {
+      this.form.form.patchValue({
+        userData: {
+          firstname: "David"
+        }
+      });
+    })
 
   }
 

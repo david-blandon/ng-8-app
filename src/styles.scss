@@ -2,3 +2,11 @@
 
 /* SCSS */
 @import "scss/style";
+
+input.ng-invalid.ng-touched {
+  border: 1px solid palevioletred;
+}
+
+// h5 {
+//   background-color: slateblue
+// }

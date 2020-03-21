@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Cockpit" [options]="false">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>Agregar nuevos servidores o blueprints!</p>
+          <label>Nombre Servidor</label>
+          <!--<input type="text" class="form-control" [(ngModel)]="newServerName">-->
+          <input type="text" class="form-control" #serverNameInput />
+          <label>Contenido</label>
+          <!--<input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+          <input type="text" class="form-control" #serverContentInput />
+          <br />
+          <button
+            class="btn btn-primary m-r-5"
+            (click)="onAddServer(serverNameInput)"
+          >
+            Adicionar Servidor
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="onAddBlueprint(serverNameInput)"
+          >
+            Adicionar Servidor Blueprint
+          </button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-6">
           <form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)">
-            <div id="userData">
+            <div id="userData" #userD="ngModelGroup" ngModelGroup="userData">
               <div class="form-group">
                 <label for="firstname">Nombre</label>
                 <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Nombre"
@@ -24,7 +24,7 @@
               </div>
             </div>
 
-            <!-- <small *ngIf="!userData.valid && userData.touched" class="form-text text-muted">Los datos del usuario son requeridos</small> -->
+            <small *ngIf="!userD.valid && userD.touched" class="form-text text-muted">Los datos del usuario son requeridos</small>
 
             <div class="form-group">
               <label for="email">Email</label>

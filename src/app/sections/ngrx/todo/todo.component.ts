@@ -37,8 +37,8 @@ export class TodoComponent implements OnInit, OnDestroy {
     this.subscription = this.todo$
       .pipe(
         map(data => {
-          // this.toDoList = data ? data.ToDos : [];
-          // this.todoError = data ? data.ToDoError : null;
+          this.toDoList = data ? data.ToDos : [];
+          this.todoError = data ? data.ToDoError : null;
         })
       )
       .subscribe();
@@ -46,13 +46,14 @@ export class TodoComponent implements OnInit, OnDestroy {
     this.store.dispatch(ToDoActions.beginGetToDoAction());
   }
 
-  get firstname(): FormControl {
-    return this.form.get('firstname') as FormControl;
-  }
-
   onSubmit() {
-    const todo: ToDo = { Title: this.form.get('name').value, IsCompleted: this.form.get('isCompleted').value };
-    this.store.dispatch(ToDoActions.beginCreateToDoAction({ payload: todo }));
+    if (this.form.valid) {
+      const todo: ToDo = { title: this.form.get('name').value, isCompleted: this.form.get('isCompleted').value };
+      this.store.dispatch(ToDoActions.beginCreateToDoAction({ payload: todo }));
+      this.form.reset();
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   ngOnDestroy() {

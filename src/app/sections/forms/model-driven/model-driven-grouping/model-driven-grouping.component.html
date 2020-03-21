@@ -7,19 +7,19 @@
         <div class="col-md-6">
           <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            <div id="userDataGroup">
+            <div id="userDataGroup" formGroupName="userData">
               <div class="form-group">
                 <label for="firstname">Nombre</label>
                 <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Nombre"
                 formControlName="firstname">
-                <!-- <small *ngIf="!firstname.valid && firstname.touched && firstname.errors.required" class="form-text text-muted">El nombre es requerido</small> -->
+                <small *ngIf="!firstname.valid && firstname.touched && firstname.errors.required" class="form-text text-muted">El nombre es requerido</small>
               </div>
               <div class="form-group">
                 <label for="lastname">Apellido</label>
                 <input type="text" class="form-control" id="lastname" aria-describedby="lastname" placeholder="Apellidos">
               </div>
             </div>
-            <!-- <small class="form-text text-muted">Los datos del usuario son requeridos</small> -->
+            <small *ngIf="!userDataGroup.valid && userDataGroup.touched" class="form-text text-muted">Los datos del usuario son requeridos</small>
 
             <div class="form-group">
               <label for="email">Email</label>

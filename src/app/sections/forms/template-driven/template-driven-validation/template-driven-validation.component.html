@@ -9,9 +9,11 @@
             <div class="form-group">
               <label for="firstname">Nombre</label>
               <input type="text" class="form-control" id="firstname" aria-describedby="firstname" placeholder="Nombre"
-              ngModels
+              ngModel
+              required
+              #firstname="ngModel"
               name="firstname">
-              <!-- <small class="form-text text-muted">El nombre es requerido</small> -->
+              <small *ngIf="!firstname.valid && firstname.touched" class="form-text text-muted">El nombre es requerido</small>
             </div>
             <div class="form-group">
               <label for="lastname">Apellido</label>

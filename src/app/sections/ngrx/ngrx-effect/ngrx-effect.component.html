@@ -1,0 +1,59 @@
+<div class="Container">
+  <h5>lista de Compras:</h5>
+
+  <div *ngFor="let item of (shoopingItems$ | async)">
+    <div class="row">
+      <div class="col-md-5">{{ item.name }} ({{ item.amount }})</div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-danger" (click)="onDelete(item.id)">
+          X
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="NgRx" [options]="false">
+      <h5>Effects</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <form novalidate [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="firstname">Item</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="name"
+                placeholder="Nombre"
+                formControlName="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="firstname">Cantidad</label>
+              <input
+                type="number"
+                class="form-control"
+                id="amount"
+                aria-describedby="amount"
+                placeholder="Cantidad"
+                formControlName="amount"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <pre>{{ form?.value | json }}</pre>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

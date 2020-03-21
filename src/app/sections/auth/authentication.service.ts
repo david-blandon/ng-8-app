@@ -25,7 +25,7 @@ export class AuthenticationService {
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponse>(
-        environment.firebase.endpoint + 'accounts:signUp?key=' + environment.firebase.apiKey,
+        environment.firebase.authDomain + 'accounts:signUp?key=' + environment.firebase.apiKey,
         {
           email: email,
           password: password,
@@ -48,7 +48,7 @@ export class AuthenticationService {
   signin(email: string, password: string) {
     return this.http
       .post<AuthResponse>(
-        environment.firebase.endpoint + 'accounts:signInWithPassword?key=' + environment.firebase.apiKey,
+        environment.firebase.authDomain + 'accounts:signInWithPassword?key=' + environment.firebase.apiKey,
         {
           email: email,
           password: password,

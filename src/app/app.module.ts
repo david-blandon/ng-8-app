@@ -32,6 +32,12 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromApp from './store/app.reducer';
 import { AuthEffects } from './sections/auth/store/auth.effects';
 import { ToDoEffects } from './sections/ngrx/todo/store/todo.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { ShoppingEffect } from './sections/ngrx/ngrx-effect/store/ngrx-effect.effects';
 
 @NgModule({
   declarations: [
@@ -63,7 +69,11 @@ import { ToDoEffects } from './sections/ngrx/todo/store/todo.effects';
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([AuthEffects, ToDoEffects]),
+    EffectsModule.forRoot([AuthEffects, ToDoEffects, ShoppingEffect]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]

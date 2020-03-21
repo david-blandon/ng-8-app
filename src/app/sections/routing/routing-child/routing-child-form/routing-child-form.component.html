@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-sm-12">
+    <app-card cardTitle="Rutas aninadas" [options]="false">
+      <h5>Editar Servidor</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="firstname">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstname"
+              aria-describedby="firstname"
+              placeholder="Nombre"
+              [(ngModel)]="serverName"
+              name="firstname"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Estado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastname"
+              aria-describedby="lastname"
+              placeholder="Apellidos"
+              [(ngModel)]="serverStatus"
+              name="lastname"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        (click)="onEdit(name, status)"
+        class="btn btn-primary m-r-5"
+      >
+        Editar
+      </button>
+      <button type="button" (click)="onCancel()" class="btn btn-info">
+        Cancelar
+      </button>
+    </app-card>
+  </div>
+</div>
